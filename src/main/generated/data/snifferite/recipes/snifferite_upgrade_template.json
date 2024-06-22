@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:diamond"
+      "item": "snifferite:splash_berries"
     },
     "C": {
-      "item": "snifferite:splash_berries"
+      "item": "snifferite:snifferite_scrap"
     },
     "S": {
       "item": "snifferite:snifferite_upgrade_template"
