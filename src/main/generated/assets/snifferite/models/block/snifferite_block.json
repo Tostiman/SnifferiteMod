@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "snifferite:block/snifferite_block_bottom",
+    "side": "snifferite:block/snifferite_block_side",
+    "top": "snifferite:block/snifferite_block_top"
+  }
+}

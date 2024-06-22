@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "snifferite:item/snifferite_upgrade_template"
+  }
+}
