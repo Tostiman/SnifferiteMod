@@ -1,9 +1,8 @@
 package net.tostiman.snifferite.datagen;
 
-import java.util.function.Consumer;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
@@ -24,7 +23,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 		super(output);
 	}
 	
-	public static void offerSnifferiteSmithingRecipe(Consumer<RecipeJsonProvider> exporter, RecipeCategory category, ItemConvertible input, Item output) {
+	public static void offerSnifferiteSmithingRecipe(RecipeExporter exporter, RecipeCategory category, ItemConvertible input, Item output) {
 		SmithingTransformRecipeJsonBuilder.create(
 				Ingredient.ofItems(ModItems.itemSnifferiteUpgradeTemplate), 
 				Ingredient.ofItems(input), 
@@ -34,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 			.offerTo(exporter, new Identifier(SnifferiteMod.MODID, getRecipeName(output) + "_smithing"));
 	}
 	
-	public static void offerToolRecipes(Consumer<RecipeJsonProvider> exporter, RecipeCategory category) {
+	public static void offerToolRecipes(RecipeExporter exporter, RecipeCategory category) {
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_SWORD, ModItems.itemSnifferiteSword);
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_SHOVEL, ModItems.itemSnifferiteShovel);
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_PICKAXE, ModItems.itemSnifferitePickaxe);
@@ -42,14 +41,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_HOE, ModItems.itemSnifferiteHoe);
 	}
 	
-	public static void offerArmorRecipes(Consumer<RecipeJsonProvider> exporter, RecipeCategory category) {
+	public static void offerArmorRecipes(RecipeExporter exporter, RecipeCategory category) {
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_HELMET, ModItems.itemSnifferiteHelmet);
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_CHESTPLATE, ModItems.itemSnifferiteChestplate);
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_LEGGINGS, ModItems.itemSnifferiteLeggings);
 		offerSnifferiteSmithingRecipe(exporter, category, Items.IRON_BOOTS, ModItems.itemSnifferiteBoots);
 	}
 	
-	public static void offerReversibleCompactingRecipes(Consumer<RecipeJsonProvider> exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem, String compactingId, String reverseId) {
+	public static void offerReversibleCompactingRecipes(RecipeExporter exporter, RecipeCategory reverseCategory, ItemConvertible baseItem, RecipeCategory compactingCategory, ItemConvertible compactItem, String compactingId, String reverseId) {
         ShapelessRecipeJsonBuilder.create(reverseCategory, baseItem, 9)
         	.input(compactItem)
         	.criterion(RecipeProvider.hasItem(compactItem), RecipeProvider.conditionsFromItem(compactItem))
@@ -64,7 +63,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     }
 	
 	@Override
-	public void generate(Consumer<RecipeJsonProvider> exporter) {
+	public void generate(RecipeExporter exporter) {
 		ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.itemSnifferiteIngot)
     		.input(ModItems.itemSnifferiteScrap, 4)
     		.input(ModItems.itemSplashBerries, 4)
