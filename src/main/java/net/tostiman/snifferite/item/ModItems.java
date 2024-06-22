@@ -3,7 +3,6 @@ package net.tostiman.snifferite.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.AliasedBlockItem;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.HoeItem;
@@ -22,7 +21,7 @@ public class ModItems {
 
 	public static final Item itemSnifferiteScrap = registerItem("snifferite_scrap", new Item(new FabricItemSettings()));
 	public static final Item itemSnifferiteIngot = registerItem("snifferite_ingot", new Item(new FabricItemSettings()));
-	public static final Item itemSplashBerries = registerItem("splash_berries", (Item)new AliasedBlockItem(ModBlocks.blockSplashBerryBush, new FabricItemSettings().food(ModFoodComponents.SPLASH_BERRY)));
+	public static final Item itemSplashBerries = registerItem("splash_berries", (Item)new ItemSplashBerry(ModBlocks.blockSplashBerryBush, new FabricItemSettings().food(ModFoodComponents.SPLASH_BERRY)));
 	public static final Item itemSnifferiteUpgradeTemplate = registerItem("snifferite_upgrade_template", new Item(new FabricItemSettings()));
 	
 	public static final Item itemSnifferiteSword = registerItem("snifferite_sword", new SwordItem(ModToolMaterial.SNIFFERITE, 3, 1.6f - 4.0f, new FabricItemSettings()));

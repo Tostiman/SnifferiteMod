@@ -3,6 +3,7 @@ package net.tostiman.snifferite;
 import net.fabricmc.api.ModInitializer;
 import net.tostiman.snifferite.block.ModBlocks;
 import net.tostiman.snifferite.item.ModItems;
+import net.tostiman.snifferite.sound.ModSounds;
 
 public class SnifferiteMod implements ModInitializer {
 	
@@ -13,5 +14,6 @@ public class SnifferiteMod implements ModInitializer {
 		ModItems.register();
 		ModBlocks.register();
 		ModLootTableModifiers.modifyLootTables();
+		ModSounds.registerSounds();
 	}
 }

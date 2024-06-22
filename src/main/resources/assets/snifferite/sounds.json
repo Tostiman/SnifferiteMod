@@ -1,0 +1,8 @@
+{
+	"splash_berry_eat": {
+		"subtitle": "sounds.snifferite.splash_berry_eat",
+		"sounds": [
+			"snifferite:splash_berry_eat"
+		] 
+	}
+}

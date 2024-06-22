@@ -15,5 +15,7 @@
 	"item.snifferite.snifferite_leggings": "Snifferite Leggings",
 	"item.snifferite.snifferite_boots": "Snifferite Boots",
 	
-	"block.snifferite.snifferite_block": "Block of Snifferite"
+	"block.snifferite.snifferite_block": "Block of Snifferite",
+	
+	"sounds.snifferite.splash_berry_eat": "Eating Splash Berry"
 }
