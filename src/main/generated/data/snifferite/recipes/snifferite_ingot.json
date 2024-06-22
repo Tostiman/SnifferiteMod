@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "snifferite:snifferite_scrap"
+    },
+    {
+      "item": "snifferite:snifferite_scrap"
+    },
+    {
+      "item": "snifferite:snifferite_scrap"
+    },
+    {
+      "item": "snifferite:snifferite_scrap"
+    },
+    {
+      "item": "snifferite:splash_berries"
+    },
+    {
+      "item": "snifferite:splash_berries"
+    },
+    {
+      "item": "snifferite:splash_berries"
+    },
+    {
+      "item": "snifferite:splash_berries"
+    }
+  ],
+  "result": {
+    "item": "snifferite:snifferite_ingot"
+  }
+}

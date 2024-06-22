@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "snifferite:snifferite_helmet",
+    "snifferite:snifferite_chestplate",
+    "snifferite:snifferite_leggings",
+    "snifferite:snifferite_boots"
+  ]
+}

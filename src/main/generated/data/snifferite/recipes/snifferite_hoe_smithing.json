@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "snifferite:snifferite_ingot"
+  },
+  "base": {
+    "item": "minecraft:iron_hoe"
+  },
+  "result": {
+    "item": "snifferite:snifferite_hoe"
+  },
+  "template": {
+    "item": "snifferite:snifferite_upgrade_template"
+  }
+}
