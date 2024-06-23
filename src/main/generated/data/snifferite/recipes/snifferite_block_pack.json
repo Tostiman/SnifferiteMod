@@ -12,7 +12,7 @@
     "###"
   ],
   "result": {
-    "item": "snifferite:snifferite_block"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "snifferite:snifferite_block"
+  }
 }

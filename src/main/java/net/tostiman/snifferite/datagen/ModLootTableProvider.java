@@ -1,5 +1,7 @@
 package net.tostiman.snifferite.datagen;
 
+import java.util.concurrent.CompletableFuture;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.Block;
@@ -14,14 +16,15 @@ import net.minecraft.loot.function.ApplyBonusLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.predicate.StatePredicate;
+import net.minecraft.registry.RegistryWrapper;
 import net.tostiman.snifferite.block.ModBlocks;
 import net.tostiman.snifferite.block.SplashBerryBushBlock;
 import net.tostiman.snifferite.item.ModItems;
 
 public class ModLootTableProvider extends FabricBlockLootTableProvider {
 
-	public ModLootTableProvider(FabricDataOutput dataOutput) {
-		super(dataOutput);
+	public ModLootTableProvider(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+		super(dataOutput, registryLookup);
 	}
 	
 	public LootTable.Builder berryDrops(Block drop, Item item){

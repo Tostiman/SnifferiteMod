@@ -20,6 +20,7 @@ import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -93,12 +94,17 @@ public class SplashBerryBushBlock extends PlantBlock implements Fertilizable {
         }
     }
 
-	@Override
-    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int age = state.get(AGE);
-        if (age != 3 && player.getStackInHand(hand).isOf(Items.BONE_MEAL)) {
-            return ActionResult.PASS;
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (state.get(AGE) != 3 && stack.isOf(Items.BONE_MEAL)) {
+            return ItemActionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         }
+        return super.onUseWithItem(stack, state, world, pos, player, hand, hit);
+    }
+    
+	@Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, BlockHitResult hit) {
+        int age = state.get(AGE);
         if (age > 1) {
             int amountOfBerries = 1 + world.random.nextInt(2);
             if (age == 3) amountOfBerries++;

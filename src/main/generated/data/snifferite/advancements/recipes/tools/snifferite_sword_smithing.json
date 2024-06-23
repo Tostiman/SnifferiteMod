@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "snifferite:snifferite_ingot"
-            ]
+            "items": "snifferite:snifferite_ingot"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_snifferite_ingot",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_snifferite_ingot"
     ]
   ],
   "rewards": {
     "recipes": [
       "snifferite:snifferite_sword_smithing"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

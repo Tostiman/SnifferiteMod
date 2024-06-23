@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "snifferite:snifferite_block"
-            ]
+            "items": "snifferite:snifferite_block"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_snifferite_block",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_snifferite_block"
     ]
   ],
   "rewards": {
     "recipes": [
       "snifferite:snifferite_ingot_unpack"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

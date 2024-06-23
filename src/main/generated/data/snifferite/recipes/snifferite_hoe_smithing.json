@@ -7,7 +7,8 @@
     "item": "minecraft:iron_hoe"
   },
   "result": {
-    "item": "snifferite:snifferite_hoe"
+    "count": 1,
+    "id": "snifferite:snifferite_hoe"
   },
   "template": {
     "item": "snifferite:snifferite_upgrade_template"

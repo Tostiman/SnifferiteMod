@@ -4,17 +4,20 @@ import java.util.function.Consumer;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.tostiman.snifferite.item.ModItems;
 
 public class ModLootTableModifiers {
 	
-	private static final Identifier SNIFFER_DIGGING_ID = new Identifier("minecraft", "gameplay/sniffer_digging");
-	private static final Identifier OCEAN_RUIN_WARM_ID = new Identifier("minecraft", "archaeology/ocean_ruin_warm");
+	private static final RegistryKey<LootTable> SNIFFER_DIGGING_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, new Identifier("minecraft", "gameplay/sniffer_digging"));
+	private static final RegistryKey<LootTable> OCEAN_RUIN_WARM_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, new Identifier("minecraft", "archaeology/ocean_ruin_warm"));
 	
 	public static void modifyLootTables() {
-		LootTableEvents.MODIFY.register((resourceManager, lootManager, id, tableBuilder, source) -> {
+		LootTableEvents.MODIFY.register((id, tableBuilder, source) -> {
 			if(source.isBuiltin()) {
 				//Add sniffer drops
 				if(SNIFFER_DIGGING_ID.equals(id)) {

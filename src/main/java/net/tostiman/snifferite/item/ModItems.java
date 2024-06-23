@@ -1,6 +1,5 @@
 package net.tostiman.snifferite.item;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.ArmorItem;
@@ -19,21 +18,21 @@ import net.tostiman.snifferite.block.ModBlocks;
 
 public class ModItems {
 
-	public static final Item itemSnifferiteScrap = registerItem("snifferite_scrap", new Item(new FabricItemSettings()));
-	public static final Item itemSnifferiteIngot = registerItem("snifferite_ingot", new Item(new FabricItemSettings()));
-	public static final Item itemSplashBerries = registerItem("splash_berries", (Item)new ItemSplashBerry(ModBlocks.blockSplashBerryBush, new FabricItemSettings().food(ModFoodComponents.SPLASH_BERRY)));
-	public static final Item itemSnifferiteUpgradeTemplate = registerItem("snifferite_upgrade_template", new Item(new FabricItemSettings()));
+	public static final Item itemSnifferiteScrap = registerItem("snifferite_scrap", new Item(new Item.Settings()));
+	public static final Item itemSnifferiteIngot = registerItem("snifferite_ingot", new Item(new Item.Settings()));
+	public static final Item itemSplashBerries = registerItem("splash_berries", (Item)new ItemSplashBerry(ModBlocks.blockSplashBerryBush, new Item.Settings().food(ModFoodComponents.SPLASH_BERRY)));
+	public static final Item itemSnifferiteUpgradeTemplate = registerItem("snifferite_upgrade_template", new Item(new Item.Settings()));
 	
-	public static final Item itemSnifferiteSword = registerItem("snifferite_sword", new SwordItem(ModToolMaterial.SNIFFERITE, 3, 1.6f - 4.0f, new FabricItemSettings()));
-	public static final Item itemSnifferitePickaxe = registerItem("snifferite_pickaxe", new PickaxeItem(ModToolMaterial.SNIFFERITE, 1, 1.2f - 4.0f, new FabricItemSettings()));
-	public static final Item itemSnifferiteAxe = registerItem("snifferite_axe", new AxeItem(ModToolMaterial.SNIFFERITE, 6, 0.9f - 4.0f, new FabricItemSettings()));
-	public static final Item itemSnifferiteShovel = registerItem("snifferite_shovel", new ShovelItem(ModToolMaterial.SNIFFERITE, 1.5f, 1.0f - 4.0f, new FabricItemSettings()));
-	public static final Item itemSnifferiteHoe = registerItem("snifferite_hoe", new HoeItem(ModToolMaterial.SNIFFERITE, -2, 3.0f - 4.0f, new FabricItemSettings()));
+	public static final Item itemSnifferiteSword = registerItem("snifferite_sword", new SwordItem(ModToolMaterial.SNIFFERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterial.SNIFFERITE, 3, 1.6f - 4.0f))));
+	public static final Item itemSnifferitePickaxe = registerItem("snifferite_pickaxe", new PickaxeItem(ModToolMaterial.SNIFFERITE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterial.SNIFFERITE, 1,  1.2f - 4.0f))));
+	public static final Item itemSnifferiteAxe = registerItem("snifferite_axe", new AxeItem(ModToolMaterial.SNIFFERITE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterial.SNIFFERITE, 6, 0.9f - 4.0f))));
+	public static final Item itemSnifferiteShovel = registerItem("snifferite_shovel", new ShovelItem(ModToolMaterial.SNIFFERITE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterial.SNIFFERITE, 1.5f, 1.0f - 4.0f))));
+	public static final Item itemSnifferiteHoe = registerItem("snifferite_hoe", new HoeItem(ModToolMaterial.SNIFFERITE, new Item.Settings().attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterial.SNIFFERITE, -2, 3.0f - 4.0f))));
 	
-	public static final Item itemSnifferiteHelmet = registerItem("snifferite_helmet", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.HELMET, new FabricItemSettings()));
-	public static final Item itemSnifferiteChestplate = registerItem("snifferite_chestplate", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings()));
-	public static final Item itemSnifferiteLeggings = registerItem("snifferite_leggings", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()));
-	public static final Item itemSnifferiteBoots = registerItem("snifferite_boots", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.BOOTS, new FabricItemSettings()));
+	public static final Item itemSnifferiteHelmet = registerItem("snifferite_helmet", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.HELMET, new Item.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(25))));
+	public static final Item itemSnifferiteChestplate = registerItem("snifferite_chestplate", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(25))));
+	public static final Item itemSnifferiteLeggings = registerItem("snifferite_leggings", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(25))));
+	public static final Item itemSnifferiteBoots = registerItem("snifferite_boots", new ArmorItem(ModArmorMaterial.SNIFFERITE, ArmorItem.Type.BOOTS, new Item.Settings().maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(25))));
 	
 	private static void addItemsToIngredientsTab(FabricItemGroupEntries entries) {
 		entries.add(itemSnifferiteScrap);

@@ -1,12 +1,11 @@
 package net.tostiman.snifferite.block;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
+import net.minecraft.block.enums.Instrument;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -19,8 +18,8 @@ import net.tostiman.snifferite.SnifferiteMod;
 
 public class ModBlocks {
 
-	public static final Block blockSnifferite = registerBlock("snifferite_block", new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK)));
-	public static final Block blockSplashBerryBush = registerBlock("splash_berry_bush", new SplashBerryBushBlock(FabricBlockSettings.create().mapColor(MapColor.DARK_GREEN).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).pistonBehavior(PistonBehavior.DESTROY)));
+	public static final Block blockSnifferite = registerBlock("snifferite_block", new Block(AbstractBlock.Settings.create().mapColor(MapColor.IRON_GRAY).instrument(Instrument.IRON_XYLOPHONE).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL)));
+	public static final Block blockSplashBerryBush = registerBlock("splash_berry_bush", new SplashBerryBushBlock(AbstractBlock.Settings.create().mapColor(MapColor.DARK_GREEN).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).pistonBehavior(PistonBehavior.DESTROY)));
 	
 	private static void addItemsToBuildingBlocksTab(FabricItemGroupEntries entries) {
 		entries.add(blockSnifferite);
@@ -32,7 +31,7 @@ public class ModBlocks {
 	}
 	
 	private static Item registerBlockItem(String name, Block block) {
-		return Registry.register(Registries.ITEM, new Identifier(SnifferiteMod.MODID, name), new BlockItem(block, new FabricItemSettings()));
+		return Registry.register(Registries.ITEM, new Identifier(SnifferiteMod.MODID, name), new BlockItem(block, new Item.Settings()));
 	}
 	
 	public static void register() {

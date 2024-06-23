@@ -1,38 +1,41 @@
 package net.tostiman.snifferite.item;
 
 import java.util.function.Supplier;
-import net.fabricmc.yarn.constants.MiningLevels;
+import com.google.common.base.Suppliers;
+import net.minecraft.block.Block;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.registry.tag.BlockTags;
+import net.minecraft.registry.tag.TagKey;
 
 public enum ModToolMaterial implements ToolMaterial {
 	
-	SNIFFERITE(750, 7.0f, 2.5f, MiningLevels.IRON, 15, () -> Ingredient.ofItems(ModItems.itemSnifferiteIngot));
+	SNIFFERITE(BlockTags.INCORRECT_FOR_IRON_TOOL, 750, 7.0f, 2.5f, 15, () -> Ingredient.ofItems(ModItems.itemSnifferiteIngot));
 
-	private final int durability;
-	private final float miningSpeedMultiplier;
+	private final TagKey<Block> inverseTag;
+	private final int itemDurability;
+	private final float miningSpeed;
 	private final float attackDamage;
-	private final int miningLevel;
 	private final int enchantability;
 	private final Supplier<Ingredient> repairIngredient;
 	
-	ModToolMaterial(int durability, float miningSpeedMultiplier, float attackDamage, int miningLevel, int enchantability, Supplier<Ingredient> repairIngredient){
-		this.durability = durability;
-		this.miningSpeedMultiplier = miningSpeedMultiplier;
+	ModToolMaterial(TagKey<Block> inverseTag, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient){
+		this.inverseTag = inverseTag;
+		this.itemDurability = itemDurability;
+		this.miningSpeed = miningSpeed;
 		this.attackDamage = attackDamage;
-		this.miningLevel = miningLevel;
 		this.enchantability = enchantability;
-		this.repairIngredient = repairIngredient;
+		this.repairIngredient = Suppliers.memoize(repairIngredient::get);
 	}
 	
 	@Override
 	public int getDurability() {
-		return this.durability;
+		return this.itemDurability;
 	}
 
 	@Override
 	public float getMiningSpeedMultiplier() {
-		return this.miningSpeedMultiplier;
+		return this.miningSpeed;
 	}
 
 	@Override
@@ -41,10 +44,10 @@ public enum ModToolMaterial implements ToolMaterial {
 	}
 
 	@Override
-	public int getMiningLevel() {
-		return this.miningLevel;
+	public TagKey<Block> getInverseTag() {
+		return inverseTag;
 	}
-
+	
 	@Override
 	public int getEnchantability() {
 		return this.enchantability;
@@ -54,5 +57,4 @@ public enum ModToolMaterial implements ToolMaterial {
 	public Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
 	}
-	
 }

@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "snifferite:snifferite_upgrade_template"
-            ]
+            "items": "snifferite:snifferite_upgrade_template"
           }
         ]
       },
@@ -22,14 +20,13 @@
   },
   "requirements": [
     [
-      "has_snifferite_upgrade_template",
-      "has_the_recipe"
+      "has_the_recipe",
+      "has_snifferite_upgrade_template"
     ]
   ],
   "rewards": {
     "recipes": [
       "snifferite:snifferite_upgrade_template"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
