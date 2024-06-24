@@ -33,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				Ingredient.ofItems(ModItems.itemSnifferiteIngot), 
 				category, output)
 			.criterion(hasItem(ModItems.itemSnifferiteIngot), conditionsFromItem(ModItems.itemSnifferiteIngot))
-			.offerTo(exporter, new Identifier(SnifferiteMod.MODID, getRecipeName(output) + "_smithing"));
+			.offerTo(exporter, Identifier.of(SnifferiteMod.MODID, getRecipeName(output) + "_smithing"));
 	}
 	
 	public static void offerToolRecipes(RecipeExporter exporter, RecipeCategory category) {
@@ -55,14 +55,14 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         ShapelessRecipeJsonBuilder.create(reverseCategory, baseItem, 9)
         	.input(compactItem)
         	.criterion(RecipeProvider.hasItem(compactItem), RecipeProvider.conditionsFromItem(compactItem))
-        	.offerTo(exporter, new Identifier(SnifferiteMod.MODID, reverseId + "_unpack"));
+        	.offerTo(exporter, Identifier.of(SnifferiteMod.MODID, reverseId + "_unpack"));
         ShapedRecipeJsonBuilder.create(compactingCategory, compactItem)
         	.input(Character.valueOf('#'), baseItem)
         	.pattern("###")
         	.pattern("###")
         	.pattern("###")
         	.criterion(RecipeProvider.hasItem(baseItem), RecipeProvider.conditionsFromItem(baseItem))
-        	.offerTo(exporter, new Identifier(SnifferiteMod.MODID, compactingId + "_pack"));
+        	.offerTo(exporter, Identifier.of(SnifferiteMod.MODID, compactingId + "_pack"));
     }
 	
 	@Override
@@ -71,7 +71,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
     		.input(ModItems.itemSnifferiteScrap, 4)
     		.input(ModItems.itemSplashBerries, 4)
     		.criterion(hasItem(ModItems.itemSnifferiteScrap), conditionsFromItem(ModItems.itemSnifferiteScrap))
-    		.offerTo(exporter, new Identifier(SnifferiteMod.MODID, getRecipeName(ModItems.itemSnifferiteIngot)));
+    		.offerTo(exporter, Identifier.of(SnifferiteMod.MODID, getRecipeName(ModItems.itemSnifferiteIngot)));
 		
 		offerReversibleCompactingRecipes(exporter, 
 			RecipeCategory.MISC, ModItems.itemSnifferiteIngot, 
@@ -84,7 +84,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 			.pattern("#C#")
 			.pattern("###")
 			.criterion(hasItem(ModItems.itemSnifferiteUpgradeTemplate), conditionsFromItem(ModItems.itemSnifferiteUpgradeTemplate))
-			.offerTo(exporter, new Identifier(SnifferiteMod.MODID, getRecipeName(ModItems.itemSnifferiteUpgradeTemplate)));
+			.offerTo(exporter, Identifier.of(SnifferiteMod.MODID, getRecipeName(ModItems.itemSnifferiteUpgradeTemplate)));
 	    
 		
 		offerToolRecipes(exporter, RecipeCategory.TOOLS);

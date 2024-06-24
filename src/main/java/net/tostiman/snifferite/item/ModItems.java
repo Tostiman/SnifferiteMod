@@ -62,7 +62,7 @@ public class ModItems {
 	}
 	
 	private static Item registerItem(String name, Item item) {
-		return Registry.register(Registries.ITEM, new Identifier(SnifferiteMod.MODID, name), item);
+		return Registry.register(Registries.ITEM, Identifier.of(SnifferiteMod.MODID, name), item);
 	}
 	
 	public static void register() {

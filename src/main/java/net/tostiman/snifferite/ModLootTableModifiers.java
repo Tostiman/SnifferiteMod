@@ -13,8 +13,8 @@ import net.tostiman.snifferite.item.ModItems;
 
 public class ModLootTableModifiers {
 	
-	private static final RegistryKey<LootTable> SNIFFER_DIGGING_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, new Identifier("minecraft", "gameplay/sniffer_digging"));
-	private static final RegistryKey<LootTable> OCEAN_RUIN_WARM_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, new Identifier("minecraft", "archaeology/ocean_ruin_warm"));
+	private static final RegistryKey<LootTable> SNIFFER_DIGGING_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "gameplay/sniffer_digging"));
+	private static final RegistryKey<LootTable> OCEAN_RUIN_WARM_ID = RegistryKey.of(RegistryKeys.LOOT_TABLE, Identifier.of("minecraft", "archaeology/ocean_ruin_warm"));
 	
 	public static void modifyLootTables() {
 		LootTableEvents.MODIFY.register((id, tableBuilder, source) -> {

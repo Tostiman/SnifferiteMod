@@ -89,7 +89,7 @@ public class ModModelProvider extends FabricModelProvider {
             String armorMaterialName = trimMaterial.getAppliedName(armor.getMaterial());
             Identifier title = identifier.withSuffixedPath("_" + armorMaterialName + "_trim");
             String armorPieceName = armor.getType().getName() + "_trim_" + armorMaterialName;
-            Identifier trimLayer = new Identifier(armorPieceName).withPrefixedPath("trims/items/");
+            Identifier trimLayer = Identifier.of(armorPieceName).withPrefixedPath("trims/items/");
             itemModelGenerator.uploadArmor(title, identifier2, trimLayer);
         }
     }
